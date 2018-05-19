@@ -11,12 +11,12 @@
     <form [formGroup]="censusLoginForm" (ngSubmit)="login()" #formDir="ngForm" novalidate>
 
         <div class="form-group row">
-            <label class=" control-label col-md-12" for="personalInfoID">ID Number</label>
+            <label class=" control-label col-md-12" for="idNumber">ID Number</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="personalInfoID">
+                <input class="form-control" type="text" formControlName="idNumber">
             </div>
-            <span class="text-danger" *ngIf="censusLoginForm.hasError('required', 'personalInfoID') && formDir.submitted">
-                ID is required.
+            <span class="text-danger" *ngIf="censusLoginForm.hasError('required', 'idNumber') && formDir.submitted">
+                ID Number is required.
             </span>
         </div>
         <div class="form-group">

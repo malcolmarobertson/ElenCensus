@@ -21,14 +21,14 @@ export class censuslogin implements OnInit {
     ngOnInit() {
 
         this.censusLoginForm = this._fb.group({
-            personalInfoID: ['', Validators.required]
+            idNumber: ['', Validators.required]
         })
     }
     
     login() {
-        this._censusService.getPersonalInfoById(this.censusLoginForm.value.personalInfoID)
+        this._censusService.getPersonalInfoById(this.censusLoginForm.value.idNumber)
             .subscribe((data) => {
-                this._router.navigate(['/register-personal-info/', this.censusLoginForm.value.personalInfoID]);
+                this._router.navigate(['/register-personal-info/', this.censusLoginForm.value.idNumber]);
             }, error => this.errorMessage = error)
     }
 
@@ -36,6 +36,6 @@ export class censuslogin implements OnInit {
         this._router.navigate(['/home']);
     }
 
-    get personalInfoID() { return this.censusLoginForm.get('personalInfoID'); }
+    get idNumber() { return this.censusLoginForm.get('idNumber'); }
 
 }  

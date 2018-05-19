@@ -6,18 +6,20 @@
 </head>
 <body>
 
-    <h1>{{formTitle}}</h1>
+    <h1 [ngStyle]="{'color': edit ? 'black' : 'red'}">{{formTitle}}</h1>
     <hr />
     <form [formGroup]="personalInfoForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
 
         <div class="form-group row">
-            <label class=" control-label col-md-12" for="personalInfoID">ID Number</label>
+            <label class=" control-label col-md-12" for="idNumber">ID Number</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="personalInfoID">
+                <input [readonly]="true" class="form-control" type="text" formControlName="idNumber">
             </div>
-            <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'personalInfoID') && formDir.submitted">
-                ID is required.
+            <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'idNumber') && formDir.submitted">
+                ID Number is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="age">Age</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="age">
@@ -25,6 +27,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'age') && formDir.submitted">
                 Age is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="title">Title</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="title">
@@ -32,6 +36,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'title') && formDir.submitted">
                 Title is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="firstName">First Name</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="firstName">
@@ -39,6 +45,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'firstName') && formDir.submitted">
                 First Name is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="surname">Surname</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="surname">
@@ -46,6 +54,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'surname') && formDir.submitted">
                 Surname is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="gender">Gender</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="gender">
@@ -53,6 +63,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'gender') && formDir.submitted">
                 Gender is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="gender">Race</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="race">
@@ -60,6 +72,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'race') && formDir.submitted">
                 Race is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="maritalStatus">Marital Status</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="maritalStatus">
@@ -67,6 +81,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'maritalStatus') && formDir.submitted">
                 Marital Status is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="religion">Religion</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="religion">
@@ -74,6 +90,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'religion') && formDir.submitted">
                 Religion is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="addressLine1">Address Line 1</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="addressLine1">
@@ -81,6 +99,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'addressLine1') && formDir.submitted">
                 Address Line 1 is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="addressLine2">Address Line 2</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="addressLine2">
@@ -88,6 +108,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'addressLine2') && formDir.submitted">
                 Address Line 2 is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="addressLine3">Address Line 3</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="addressLine3">
@@ -95,6 +117,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'addressLine3') && formDir.submitted">
                 Address Line 3 is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="addressLine1">Address Line 4</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="addressLine4">
@@ -102,6 +126,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'addressLine4') && formDir.submitted">
                 Address Line 4 is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="province">Province</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="province">
@@ -109,6 +135,8 @@
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'province') && formDir.submitted">
                 Province is required.
             </span>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="province">Country of Birth</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="countryOfBirth">
@@ -118,7 +146,7 @@
             </span>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-default">Save</button>
+            <button *ngIf="edit" type="submit" class="btn btn-default">Save</button>
             <button class="btn" (click)="cancel()">Cancel</button>
         </div>
     </form>

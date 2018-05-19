@@ -11,18 +11,19 @@ import { CensusService } from '../../services/census.service';
 export class registerpersonalinfo implements OnInit {
     personalInfoForm: FormGroup;
     formTitle: string = "Census Details Already Exist";
-    personalInfoID: number;
+    idNumber: string;
     errorMessage: any;
+    edit: boolean;
 
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
         private _censusService: CensusService, private _router: Router) {
         if (this._avRoute.snapshot.params["id"]) {
-            this.personalInfoID = this._avRoute.snapshot.params["id"];
+            this.idNumber = this._avRoute.snapshot.params["id"];
         }
 
         this.personalInfoForm = this._fb.group({
-            personalInfoID: 2,
-            idNumber: ['', [Validators.required]],
+            personalInfoID: 0,
+            idNumber: this.idNumber,
             age: ['', [Validators.required]],
             title: ['', [Validators.required]],
             firstName: ['', [Validators.required]],
@@ -38,43 +39,42 @@ export class registerpersonalinfo implements OnInit {
             province: ['', [Validators.required]],
             countryOfBirth: ['', [Validators.required]]
 
-
         })
-
     }
 
     ngOnInit() {
+        this.edit = false;
+        this._censusService.getPersonalInfoById(this.idNumber)
+            .subscribe(resp => this.displayInfo(resp)
+                , error => this.errorMessage = error);
 
-        if (this.personalInfoID > 0) {
-            this._censusService.getPersonalInfoById(this.personalInfoID)
-                .subscribe(resp => this.personalInfoForm.setValue(resp)
-                    , error => this.errorMessage = error);
+    }
+
+    displayInfo(resp) {
+        if (resp) {
+            this.personalInfoForm.disable();
+            this.personalInfoForm.setValue(resp);
         }
-
+        else {
+            this.formTitle = "Register Census Information"
+            this.edit = true;
+        }
     }
 
     save() {
 
-        if (!this.personalInfoForm.valid) {
-            return;
-        }
+        //if (!this.personalInfoForm.valid) {
+        //    return;
+        //}
 
-        //if (this.title == "Create") {
-        //    this._censusService.savePersonalInfo(this.personalInfoForm.value)
-        //        .subscribe((data) => {
-        //            this._router.navigate(['/home']);
-        //        }, error => this.errorMessage = error)
-        //}
-        //else if (this.title == "Edit") {
-        //    this._censusService.updatePersonalInfo(this.personalInfoForm.value)
-        //        .subscribe((data) => {
-        //            this._router.navigate(['/home']);
-        //        }, error => this.errorMessage = error)
-        //}
+        this._censusService.savePersonalInfo(this.personalInfoForm.value)
+            .subscribe((data) => {
+                this._router.navigate(['/home']);
+            }, error => this.errorMessage = error);
     }
 
     cancel() {
-        this._router.navigate(['/home']);
+        this._router.navigate(['/census-login']);
     }
 
     get age() { return this.personalInfoForm.get('age'); }
@@ -91,6 +91,8 @@ export class registerpersonalinfo implements OnInit {
     get addressLine4() { return this.personalInfoForm.get('addressLine4'); }
     get province() { return this.personalInfoForm.get('province'); }
     get countryOfBirth() { return this.personalInfoForm.get('countryOfBirth'); }
+
+    //get showSave() { return this.edit; }
 
     //get fullName() {
     //    return this.voterForm.get('fullName');

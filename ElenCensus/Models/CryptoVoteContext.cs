@@ -41,7 +41,9 @@ namespace ElenCensus.Models
 
                 entity.ToTable("cen_PersonalInfo");
 
-                entity.Property(e => e.PersonalInfoID).HasColumnName("PersonalInfoID");
+                entity.Property(e => e.PersonalInfoID)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("PersonalInfoID");
 
                 entity.Property(e => e.IDNumber)
                     .IsRequired()

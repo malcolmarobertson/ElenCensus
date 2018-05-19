@@ -27,16 +27,17 @@ namespace ElenCensus.Controllers
         [Route("Create")]
         public int Create([FromBody] PersonalInfo personalInfo)
         {
+            db.Entry(personalInfo).State = EntityState.Added;
             db.PersonalInfo.Add(personalInfo);
             db.SaveChanges();
             return 1;
         }
 
         [HttpGet]
-        [Route("Details/{personalInfoID}")]
-        public PersonalInfo Details(int personalInfoID)
+        [Route("Details/{idNumber}")]
+        public PersonalInfo Details(string idNumber)
         {
-            PersonalInfo personalInfo = db.PersonalInfo.Single(p => p.PersonalInfoID == personalInfoID);
+            PersonalInfo personalInfo = db.PersonalInfo.FirstOrDefault(p => p.IDNumber == idNumber);
             return personalInfo;
         }
 
@@ -50,7 +51,7 @@ namespace ElenCensus.Controllers
         }
 
         [HttpDelete]
-        [Route("Delete/{personalInfoID}")]
+        [Route("Delete/{idNumber}")]
         public int Delete(int personalInfoID)
         {
             PersonalInfo personalInfo = db.PersonalInfo.Find(personalInfoID);

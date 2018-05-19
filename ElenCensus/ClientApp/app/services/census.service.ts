@@ -20,8 +20,8 @@ export class CensusService {
             .catch(this.errorHandler);
     }
 
-    getPersonalInfoById(personalInfoID: number) {
-        return this._http.get(this.myAppUrl + 'Details/' + personalInfoID)
+    getPersonalInfoById(idNumber: string) {
+        return this._http.get(this.myAppUrl + 'Details/' + idNumber)
             .map((response: Response) => response.json())
             .catch(this.errorHandler)
     }
