@@ -3,35 +3,20 @@ server = 'Enk-sql01.swh.mweb.co.za'
 database = 'm5699140_aWare'
 username = 'm5699140_sysadmin'
 password = 'Sysadm1!'
-cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+driver='/usr/local/lib/libmsodbcsql.13.dylib'
+
+
+cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=Enk-sql01.swh.mweb.co.za;DATABASE=m5699140_aWare;UID=m5699140_sysadmin;PWD=Sysadm1!')
 cursor = cnxn.cursor()
 
-print ('Inserting a new row into table')
-#Insert Query
-tsql = "INSERT INTO Employees (Name, Location) VALUES (?,?);"
-with cursor.execute(tsql,'Jake','United States'):
-    print ('Successfuly Inserted!')
+
+cursor.execute("SELECT TOP 100 * FROM cen_Census")
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+cursor.close()
+cnxn.close()
 
 
-#Update Query
-print ('Updating Location for Nikita')
-tsql = "UPDATE Employees SET Location = ? WHERE Name = ?"
-with cursor.execute(tsql,'Sweden','Nikita'):
-    print ('Successfuly Updated!')
 
 
-#Delete Query
-print ('Deleting user Jared')
-tsql = "DELETE FROM Employees WHERE Name = ?"
-with cursor.execute(tsql,'Jared'):
-    print ('Successfuly Deleted!')
-
-
-#Select Query
-print ('Reading data from table')
-tsql = "SELECT Name, Location FROM Employees;"
-with cursor.execute(tsql):
-    row = cursor.fetchone()
-    while row:
-        print (str(row[0]) + " " + str(row[1]))
-        row = cursor.fetchone()
