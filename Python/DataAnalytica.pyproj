@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9eecb38f-a11c-4424-9652-818b86e87b4f}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>Exponential-Fit-with-matplotlib.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <Name>DataAnalytica</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AgeGenderIncome.py" />
+    <Compile Include="basemap.py" />
+    <Compile Include="bubble.py" />
+    <Compile Include="coordinates.py" />
+    <Compile Include="dbconnection.py" />
+    <Compile Include="Exponential-Fit-with-matplotlib.py" />
+    <Compile Include="generateRandom.py" />
+    <Compile Include="heatmap.py" />
+    <Compile Include="hello.py" />
+    <Compile Include="MalevsFemale.py" />
+    <Compile Include="multibar.py" />
+    <Compile Include="pdf.py" />
+    <Compile Include="script.py" />
+    <Compile Include="seaborn.py" />
+    <Compile Include="test.py" />
+    <Compile Include="test2.py" />
+    <Compile Include="test3.py" />
+    <Compile Include="test4.py" />
+    <Compile Include="testDataFromFile.py" />
+    <Compile Include="whatsapp.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

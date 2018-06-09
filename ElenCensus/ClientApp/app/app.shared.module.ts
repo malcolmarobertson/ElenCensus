@@ -16,6 +16,9 @@ import { createvoter } from './components/addvoter/addvoter.component';
 import { registerpersonalinfo } from './components/registerpersonalinfo/registerpersonalinfo.component';
 import { censuslogin } from './components/censuslogin/censuslogin.component';
 import { CensusService } from './services/census.service';
+import { StatisticsService } from './services/statistics.service';
+import { ChartComponent } from './components/fetchchartdata/fetchchartdata.component';
+import { GenderChartComponent } from './components/genderchart/genderchart.component';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { CensusService } from './services/census.service';
         FetchVoterComponent,
         createvoter,
         registerpersonalinfo,
-        censuslogin
+        censuslogin,
+        ChartComponent,
+        GenderChartComponent
     ],
     imports: [
         CommonModule,
@@ -45,12 +50,16 @@ import { CensusService } from './services/census.service';
             { path: 'register-personal-info/:id', component: registerpersonalinfo },
             { path: 'census-login', component: censuslogin },
             { path: 'voter/edit/:id', component: createvoter },  
+            { path: 'fetch-chart-data', component: ChartComponent },
+            { path: 'gender-chart', component: GenderChartComponent },
             { path: '**', redirectTo: 'home' }
+
         ])
     ],
     providers: [
         VoterService,
-        CensusService
+        CensusService,
+        StatisticsService
     ]  
 })
 export class AppModuleShared {

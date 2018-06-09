@@ -6,7 +6,6 @@ namespace ElenCensus.Models
 {
     public partial class ElenCensusContext : DbContext
     {
-        public virtual DbSet<VoterRoll> VoterRoll { get; set; }
         public virtual DbSet<PersonalInfo> PersonalInfo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -20,21 +19,6 @@ namespace ElenCensus.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<VoterRoll>(entity =>
-            {
-                entity.HasKey(e => e.VoterId);
-
-                entity.ToTable("VoterRoll");
-
-                entity.Property(e => e.VoterId).HasColumnName("VoterId");
-
-                entity.Property(e => e.FullName)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-            });
-
             modelBuilder.Entity<PersonalInfo>(entity =>
             {
                 entity.HasKey(e => e.PersonalInfoID);

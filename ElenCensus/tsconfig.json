@@ -12,7 +12,14 @@
     "lib": [ "es6", "dom" ],
     "types": [ "webpack-env" ],
     "noImplicitAny": false,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false
+
+    //"paths": {
+    //  "plotly.js": [
+    //    "../node_modules/plotly.js/lib/core.js"
+    //  ]
+    //}
   },
   "exclude": [ "bin", "node_modules" ],
   "atom": { "rewriteTsconfig": false }

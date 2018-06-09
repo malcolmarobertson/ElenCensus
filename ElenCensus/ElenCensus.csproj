@@ -23,11 +23,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\VoterRollController.cs" />
+    <Compile Remove="Models\VoterRoll.cs" />
+    <Compile Remove="Models\VoterRollDAL.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\app\components\addvoter\addvoter.component.ts" />
     <None Remove="ClientApp\app\components\censuslogin\censuslogin.component.ts" />
     <None Remove="ClientApp\app\components\fetchvoter\fetchvoter.component.ts" />
     <None Remove="ClientApp\app\components\registerpersonalinfo\registerpersonalinfo.component.ts" />
     <None Remove="ClientApp\app\services\census.service.ts" />
+    <None Remove="ClientApp\app\services\statistics.service.ts" />
     <None Remove="ClientApp\app\services\voterroll.service.ts" />
   </ItemGroup>
 
@@ -52,7 +59,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\addvoter\addvoter.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\fetchvoter\fetchvoter.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\census.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\voterroll.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\statistics.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
