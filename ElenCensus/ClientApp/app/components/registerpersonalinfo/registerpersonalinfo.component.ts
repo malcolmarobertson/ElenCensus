@@ -14,6 +14,9 @@ export class registerpersonalinfo implements OnInit {
     idNumber: string;
     errorMessage: any;
     edit: boolean;
+    genders: Array<any> = ['Male', 'Female', 'Other', 'Not Specified'];
+    races: Array<any> = ['Black', 'Coloured', 'Indian', 'Other', 'Not Specified'];
+
 
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
         private _censusService: CensusService, private _router: Router) {

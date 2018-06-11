@@ -38,6 +38,8 @@ namespace ElenCensus.Controllers
         public PersonalInfo Details(string idNumber)
         {
             PersonalInfo personalInfo = db.PersonalInfo.FirstOrDefault(p => p.IDNumber == idNumber);
+            if (personalInfo != null)
+                personalInfo.Gender = personalInfo.Gender.TrimEnd(' ');
             return personalInfo;
         }
 

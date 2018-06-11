@@ -58,16 +58,20 @@
         <div class="form-group row">
             <label class=" control-label col-md-12" for="gender">Gender</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="gender">
+                <select class="form-control" data-val="true" formControlName="gender" trim>
+                    <option *ngFor="let gen of genders" value={{gen}}>{{gen}}</option>
+                </select>
             </div>
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'gender') && formDir.submitted">
                 Gender is required.
             </span>
         </div>
         <div class="form-group row">
-            <label class=" control-label col-md-12" for="gender">Race</label>
+            <label class=" control-label col-md-12" for="race">Race</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="race">
+                <select class="form-control" data-val="true" formControlName="race" trim>
+                    <option *ngFor="let rc of races" value={{rc}}>{{rc}}</option>
+                </select>
             </div>
             <span class="text-danger" *ngIf="personalInfoForm.hasError('required', 'race') && formDir.submitted">
                 Race is required.

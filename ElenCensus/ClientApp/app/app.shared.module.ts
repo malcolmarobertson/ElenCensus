@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+//import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -40,6 +40,7 @@ import { GenderChartComponent } from './components/genderchart/genderchart.compo
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
+        //NgxTrimDirectiveModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
