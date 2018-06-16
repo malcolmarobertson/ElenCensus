@@ -19,6 +19,7 @@ import { CensusService } from './services/census.service';
 import { StatisticsService } from './services/statistics.service';
 import { ChartComponent } from './components/fetchchartdata/fetchchartdata.component';
 import { GenderChartComponent } from './components/genderchart/genderchart.component';
+import { CrimeChartComponent } from './components/crimechart/crimechart.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { GenderChartComponent } from './components/genderchart/genderchart.compo
         registerpersonalinfo,
         censuslogin,
         ChartComponent,
-        GenderChartComponent
+        GenderChartComponent,
+        CrimeChartComponent
     ],
     imports: [
         CommonModule,
@@ -53,6 +55,7 @@ import { GenderChartComponent } from './components/genderchart/genderchart.compo
             { path: 'voter/edit/:id', component: createvoter },  
             { path: 'fetch-chart-data', component: ChartComponent },
             { path: 'gender-chart', component: GenderChartComponent },
+            { path: 'crime-chart', component: CrimeChartComponent },
             { path: '**', redirectTo: 'home' }
 
         ])

@@ -33,6 +33,28 @@ namespace ElenCensus.Controllers
             return bc;
         }
 
+        [HttpGet]
+        [Route("CrimeStats")]
+        public BarChart CrimeStats()
+        {
+            BarChart bc = new BarChart
+            {
+                XAxis = "Crime",
+                YAxis = "Incidents",
+                barData = new List<(string, int)>()
+            };
 
+            var cc = db.CrimeCount
+                .FromSql("EXECUTE dbo.[uspGetCrimeCountTotal]")
+                .ToList();
+
+            foreach (var c in cc)
+            {
+                bc.barData.Add((c.Crime, c.Count));
+            }
+
+            return bc;
+
+        }
     }
 }

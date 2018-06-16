@@ -1,40 +1,35 @@
 import { Component } from '@angular/core';
 import { StatisticsService } from '../../services/statistics.service';
 import { Chart } from 'chart.js';
-//import * as D3 from 'd3';
 
 declare let palette: any;
 
 @Component({
-    templateUrl: './genderchart.component.html',
+    templateUrl: './crimechart.component.html',
 })
-export class GenderChartComponent {
+export class CrimeChartComponent {
 
-    genderChart = [];
+    crimeChart = [];
 
     constructor(private _service: StatisticsService) { }
 
-    
-
     ngOnInit() {
-        this._service.getGenderStats()
+        this._service.getCrimeStats()
             .subscribe(res => {
 
                 let xAxisLabel = res['xAxis']
                 let yAxisLabel = res['yAxis']
-                let genders = res['barData'].map(res => res.item1)
+                let crimes = res['barData'].map(res => res.item1)
                 let counts = res['barData'].map(res => res.item2)
 
-                let plt = palette('tol', genders.length).map(function (hex) {
+                let plt = palette('tol', crimes.length).map(function (hex) {
                     return '#' + hex;
                 });
 
-
-
-                this.genderChart = new Chart('canvas', {
+                this.crimeChart = new Chart('canvas', {
                     type: 'bar',
                     data: {
-                        labels: genders,
+                        labels: crimes,
                         datasets: [
                             {
                                 data: counts,

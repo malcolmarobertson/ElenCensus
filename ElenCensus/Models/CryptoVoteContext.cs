@@ -7,6 +7,7 @@ namespace ElenCensus.Models
     public partial class ElenCensusContext : DbContext
     {
         public virtual DbSet<PersonalInfo> PersonalInfo { get; set; }
+        public virtual DbSet<CrimeCount> CrimeCount { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -16,6 +17,8 @@ namespace ElenCensus.Models
                 optionsBuilder.UseSqlServer(@"Server=Enk-sql01.swh.mweb.co.za; Database=m5699140_aWare; User ID=m5699140_sysadmin; Password=Sysadm1!; MultipleActiveResultSets=true");
             }
         }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
