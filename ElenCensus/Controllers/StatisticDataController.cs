@@ -34,6 +34,25 @@ namespace ElenCensus.Controllers
         }
 
         [HttpGet]
+        [Route("RaceStats")]
+        public BarChart RaceStats()
+        {
+            BarChart bc = new BarChart
+            {
+                XAxis = "Race",
+                YAxis = "Population",
+                barData = new List<(string, int)>()
+            };
+            bc.barData.Add((race: "Black", count: db.PersonalInfo.Where(w => w.Race == "Black").Count()));
+            bc.barData.Add((race: "Coloured", count: db.PersonalInfo.Where(w => w.Race == "Coloured").Count()));
+            bc.barData.Add((race: "White", count: db.PersonalInfo.Where(w => w.Race == "White").Count()));
+            bc.barData.Add((race: "Indian", count: db.PersonalInfo.Where(w => w.Race == "Indian").Count()));
+            bc.barData.Add((race: "Other", count: db.PersonalInfo.Where(w => w.Race == "Other").Count()));
+
+            return bc;
+        }
+
+        [HttpGet]
         [Route("CrimeStats")]
         public BarChart CrimeStats()
         {

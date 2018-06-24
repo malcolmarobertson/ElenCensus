@@ -28,8 +28,18 @@
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/race-chart']">
+                        <span class='glyphicon glyphicon-th-list'></span> Race Chart
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/crime-chart']">
                         <span class='glyphicon glyphicon-th-list'></span> Crime Chart
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/crime-map']">
+                        <span class='glyphicon glyphicon-th-list'></span> Crime Map
                     </a>
                 </li>
             </ul>

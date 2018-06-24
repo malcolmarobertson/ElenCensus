@@ -28,6 +28,12 @@ export class StatisticsService {
             .catch(this.errorHandler);
     }
 
+    getRaceStats() {
+        return this._http.get(this.myAppUrl + 'RaceStats')
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler);
+    }
+
     getCrimeStats() {
         return this._http.get(this.myAppUrl + 'CrimeStats')
             .map((response: Response) => response.json())
