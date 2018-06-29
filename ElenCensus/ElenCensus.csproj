@@ -19,7 +19,20 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="ClientApp\app\components\addvoter\**" />
+    <Compile Remove="ClientApp\app\components\fetchchartdata\**" />
+    <Compile Remove="ClientApp\app\components\fetchdata\**" />
+    <Compile Remove="Python\**" />
     <Content Remove="ClientApp\**" />
+    <Content Remove="Python\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\addvoter\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\fetchchartdata\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\fetchdata\**" />
+    <EmbeddedResource Remove="Python\**" />
+    <None Remove="ClientApp\app\components\addvoter\**" />
+    <None Remove="ClientApp\app\components\fetchchartdata\**" />
+    <None Remove="ClientApp\app\components\fetchdata\**" />
+    <None Remove="Python\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,9 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\components\addvoter\addvoter.component.ts" />
     <None Remove="ClientApp\app\components\censuslogin\censuslogin.component.ts" />
-    <None Remove="ClientApp\app\components\fetchvoter\fetchvoter.component.ts" />
     <None Remove="ClientApp\app\components\registerpersonalinfo\registerpersonalinfo.component.ts" />
     <None Remove="ClientApp\app\services\census.service.ts" />
     <None Remove="ClientApp\app\services\statistics.service.ts" />
@@ -56,18 +67,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\censuslogin\censuslogin.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\registerpersonalinfo\registerpersonalinfo.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\addvoter\addvoter.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\fetchvoter\fetchvoter.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\census.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\statistics.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Python\" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

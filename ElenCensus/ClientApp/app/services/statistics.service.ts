@@ -40,10 +40,7 @@ export class StatisticsService {
             .catch(this.errorHandler);
     }
 
-    testPy() {
-        return '<div>malcolmpy</div>';
-    }
-
+   
     errorHandler(error: Response) {
         console.log(error);
         return Observable.throw(error);
